@@ -1,0 +1,118 @@
+.tasks {
+    padding-bottom: 75px;
+}
+
+.tasks__item {
+    padding: 0 30px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.task__realization {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+// фейк чекбокс
+.realization_checkbox {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+}
+
+.realization_fake {
+    width: 16px;
+    height: 16px;
+    background: #eb6e34;
+    position: relative;
+
+    &:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        background: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: width .3s, height .3s;
+    }
+}
+
+.realization_checkbox:checked {
+
+    &+.realization_fake {
+        &:after {
+            width: 15px;
+            height: 15px;
+        }
+    }
+}
+
+.realization_checkbox:checked {
+    &+.realization_fake {
+        &:after {
+            background: url("../img/check.png") 50% no-repeat transparent;
+            background-size: contain;
+            width: rem(11px);
+            height: rem(9px);
+        }
+    }
+}
+
+// конец фейк чекбокс
+.task {
+    margin-left: 5px;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+}
+
+.task_time {
+    font-size: 18px;
+    color: #7a797a;
+}
+
+.task__time-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+// Удаление
+.close.close_task {
+    margin-left: 5px;
+    cursor: pointer;
+    color: rgb(204, 204, 204);
+
+    &:not(:disabled):not(.disabled):focus,
+    &:not(:disabled):not(.disabled):hover {
+        opacity: 1;
+        color: #726e6e;
+    }
+
+    &:hover {
+        opacity: 1;
+        color: #726e6e;
+    }
+
+}
+
+// редактирование
+.edit {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    outline: none;
+    border: 0;
+    color: rgb(204, 204, 204);
+
+    &:hover {
+        color: #726e6e;
+    }
+}
